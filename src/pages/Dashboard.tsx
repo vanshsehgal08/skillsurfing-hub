@@ -16,32 +16,30 @@ import {
 const Dashboard = () => {
   const { user, session } = useAuth();
 
-  // While the session is being checked, don't redirect
   if (!session) {
     return <div>Loading...</div>;
   }
 
-  // Only redirect if we're sure there's no user
   if (!user) {
     return <Navigate to="/" replace />;
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-background/80">
       <Navbar />
       
       <main className="flex-grow container mx-auto px-4 py-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-8">
-            <h1 className="text-3xl font-bold">
+        <div className="max-w-7xl mx-auto space-y-8">
+          <div className="bg-primary/5 rounded-lg p-8 backdrop-blur-sm">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
               Welcome back, {user.user_metadata.full_name}!
             </h1>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="p-6">
+            <Card className="p-6 border-0 shadow-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
               <div className="flex items-start space-x-4">
-                <div className="p-2 bg-primary/10 rounded-lg">
+                <div className="p-3 bg-primary/10 rounded-xl">
                   <Briefcase className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -51,9 +49,9 @@ const Dashboard = () => {
               </div>
             </Card>
 
-            <Card className="p-6">
+            <Card className="p-6 border-0 shadow-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
               <div className="flex items-start space-x-4">
-                <div className="p-2 bg-primary/10 rounded-lg">
+                <div className="p-3 bg-primary/10 rounded-xl">
                   <GraduationCap className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -63,9 +61,9 @@ const Dashboard = () => {
               </div>
             </Card>
 
-            <Card className="p-6">
+            <Card className="p-6 border-0 shadow-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
               <div className="flex items-start space-x-4">
-                <div className="p-2 bg-primary/10 rounded-lg">
+                <div className="p-3 bg-primary/10 rounded-xl">
                   <Star className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -75,9 +73,9 @@ const Dashboard = () => {
               </div>
             </Card>
 
-            <Card className="p-6">
+            <Card className="p-6 border-0 shadow-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
               <div className="flex items-start space-x-4">
-                <div className="p-2 bg-primary/10 rounded-lg">
+                <div className="p-3 bg-primary/10 rounded-xl">
                   <Bell className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -87,9 +85,9 @@ const Dashboard = () => {
               </div>
             </Card>
 
-            <Card className="p-6">
+            <Card className="p-6 border-0 shadow-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
               <div className="flex items-start space-x-4">
-                <div className="p-2 bg-primary/10 rounded-lg">
+                <div className="p-3 bg-primary/10 rounded-xl">
                   <MessageSquare className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -99,9 +97,9 @@ const Dashboard = () => {
               </div>
             </Card>
 
-            <Card className="p-6">
+            <Card className="p-6 border-0 shadow-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
               <div className="flex items-start space-x-4">
-                <div className="p-2 bg-primary/10 rounded-lg">
+                <div className="p-3 bg-primary/10 rounded-xl">
                   <FileText className="h-6 w-6 text-primary" />
                 </div>
                 <div>
