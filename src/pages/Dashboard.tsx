@@ -1,3 +1,4 @@
+
 import { Navigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -37,7 +38,7 @@ const Dashboard = () => {
   }, [user]);
 
   if (!session) {
-    return <div>Loading...</div>;
+    return <Navigate to="/" replace />;
   }
 
   if (!user) {
