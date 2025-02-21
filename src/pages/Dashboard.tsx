@@ -1,4 +1,3 @@
-
 import { Navigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,9 +11,30 @@ import {
   MessageSquare,
   FileText 
 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 const Dashboard = () => {
   const { user, session } = useAuth();
+  const [isProfileComplete, setIsProfileComplete] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const checkProfile = async () => {
+      if (user) {
+        const { data, error } = await supabase
+          .from("profiles")
+          .select("is_profile_complete")
+          .eq("id", user.id)
+          .single();
+
+        if (!error && data) {
+          setIsProfileComplete(data.is_profile_complete);
+        }
+      }
+    };
+
+    checkProfile();
+  }, [user]);
 
   if (!session) {
     return <div>Loading...</div>;
@@ -22,6 +42,14 @@ const Dashboard = () => {
 
   if (!user) {
     return <Navigate to="/" replace />;
+  }
+
+  if (isProfileComplete === false) {
+    return <Navigate to="/profile" replace />;
+  }
+
+  if (isProfileComplete === null) {
+    return <div>Loading...</div>;
   }
 
   return (
